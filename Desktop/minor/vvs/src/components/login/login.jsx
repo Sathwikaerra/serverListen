@@ -12,7 +12,7 @@ const Login = () => {
 
     const Handle=(e)=>{
         e.preventDefault();
-         axios.post('http://localhost:8000/login',{email,password}).then(res=>{
+         axios.post(`http://127.0.0.1:8000/login`,{email,password}).then(res=>{
           if(res.data=='success')
           {
        
@@ -40,7 +40,8 @@ const Login = () => {
 
 
   return (
-    <div className=' login'>
+    <div className="loginpage">
+  
          <form className='form d-flex  ' onSubmit={Handle}>
       
 
@@ -56,7 +57,7 @@ const Login = () => {
 
         </div>
         
-        <div><button type='submit' className='btn btn-primary '>Login</button></div>
+        <div><button type='submit' className='btn btn-success '>Login</button></div>
 
         <div>
             <p>Already  have an acccount ?<a className='link' href="/signup"><span className='text-black'>Signup here</span></a></p>
@@ -67,7 +68,7 @@ const Login = () => {
 
 
        </form>
-      
+       
     </div>
   )
 }

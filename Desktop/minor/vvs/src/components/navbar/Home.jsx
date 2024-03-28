@@ -3,6 +3,7 @@ import {movieData} from '../moviedara'
 import{useParams} from 'react-router-dom'
 import { Connect, connect } from 'react-redux'
 import { addTicket } from '../../store/action'
+import { Link } from 'react-router-dom'
 
 import Item from '../item/item'
 import './home.css'
@@ -17,9 +18,10 @@ const Home = ({addTicket}) => {
 
     const[data,setData]=useState(movieData)
   return (
+    <div className="moviespage">
 
-    <div className='popular'>
     <h1>On Going Movies</h1>
+    <span>CLick here for</span><Link to='/upcommingmovies'>Upcomming Movies..</Link>
     <h1>Book Your Favourate Movies</h1>
     <hr />
     <div className="popular-item">
@@ -31,6 +33,7 @@ const Home = ({addTicket}) => {
  </div>
 
 </div>
+
   )
 }
 

@@ -1,7 +1,21 @@
+
+
+
+
+.bookingmain{
+   
+   background: #780206;  /* fallback for old browsers */
+   background: -webkit-linear-gradient(to right, #061161, #780206);  /* Chrome 10-25, Safari 5.1-6 */
+   background: linear-gradient(to right, #061161, #780206); 
+   
+}
+
+
+
 .left{
    flex: 1;
    
-    display: flex;
+    
     
 
     flex-wrap: wrap;
@@ -13,6 +27,9 @@
     padding: 10px 20px;
     height: 50px;
     font-size: 10px;
+ 
+
+
 
  }
  .left button:hover{
@@ -49,6 +66,10 @@
    justify-content: center;
    align-items: center;
    margin: 20px 60px;
+   padding: 60px 50px;
+   background: #780206;  /* fallback for old browsers */
+   background: -webkit-linear-gradient(to right, #061161, #780206);  /* Chrome 10-25, Safari 5.1-6 */
+   background: linear-gradient(to right, #061161, #780206); 
    
  }
 
@@ -66,8 +87,11 @@
    padding: 10px 20px;
    height: 50px;
    font-size: 10px;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   
 
 }
+ 
 
 
 .right{
@@ -196,3 +220,11 @@
 }
 
 
+.bookingseat{
+
+   background: #780206;  /* fallback for old browsers */
+   background: -webkit-linear-gradient(to right, #061161, #780206);  /* Chrome 10-25, Safari 5.1-6 */
+   background: linear-gradient(to right, #061161, #780206); 
+   padding-bottom: 50px;
+
+}

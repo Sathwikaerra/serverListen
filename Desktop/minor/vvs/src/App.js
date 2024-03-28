@@ -11,7 +11,9 @@ import BookingSeat from './components/bookingseat/BookingSeat';
 import Payments from './components/payments/payments';
 import Main from './components/HomePage/Main';
 import UpCommingMovies from './components/upcommng/UpCommingMovies';
-
+import Homepage from './components/perfectHome/Homepage';
+import Upsingleitem from './components/UpcmngSingleitem/Upsingleitem'
+import './App.css'
 
 function App() {
   return (
@@ -19,8 +21,9 @@ function App() {
     <BrowserRouter>
     <Navbar/>
     <Routes>
-      <Route path='/' element={<Main/>}/>
-      <Route path='/upcommingmovies' element={<UpCommingMovies/>}/>
+      <Route path='/' element={<Homepage/>}/>
+      <Route path='/upcomming/:id' element={<Upsingleitem/>}/>
+      <Route path='/upcommingmovies' element={<Main/>}/>
       <Route path='/login' element={<Login/>}/>
       <Route path='/signup' element={<Signup/>}/>
       <Route path='/home/:user' element={<Home/>}/>

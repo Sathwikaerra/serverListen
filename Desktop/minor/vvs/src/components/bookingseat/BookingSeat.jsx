@@ -58,6 +58,9 @@ const BookingSeat = ({date,tickets,addTicket,addDate}) => {
 
     
   return (
+    <div className="bookingmain">
+
+  
     <div className='bookingseat'>
 
         <div className="dates">
@@ -101,7 +104,7 @@ const BookingSeat = ({date,tickets,addTicket,addDate}) => {
 
 
         <div className="seats">
-        <div className="left">
+        <div className="middle">
             {
                 seatingData.map((item,index)=>{
                     return(
@@ -161,6 +164,7 @@ const BookingSeat = ({date,tickets,addTicket,addDate}) => {
             
         </div>
      
+    </div>
     </div>
   )
 }

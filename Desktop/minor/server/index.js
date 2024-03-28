@@ -4,37 +4,43 @@ const path=require('path')
 const mongoose=require('mongoose')
 const schema=require('./schema')
 const cors=require('cors')
-app.use(cors())
+const dotenv=require('dotenv')
+app.use(cors());
+dotenv.config()
 app.use(express.json())
+
+
+const router=require('./routes/User')
 
 
 
 mongoose.connect('mongodb+srv://shiva143:shiva143@cluster0.3baatam.mongodb.net/MOVIES?retryWrites=true&w=majority&appName=Cluster0').then(r=>console.log('conneted succesfully'))
+app.use(express.json())
 
-
-
+app.use('/', router)
 
 app.post('/login',(req,res)=>{
     const {email,password}=req.body
     
-    schema.findOne({email:email}).then(user=>{
-        if(user)
-        {
-            if(user.password===password)
-            {
-               res.json("success")
-            }
-            else
-            {
-                res.json("password in correct");
-            }
-        }
-        else{
+   const user= schema.findOne({email:email})
 
-                 res.json("User not found");
-        }
+   if(!user)
+   {
+    return res.json({msg:'user is not yet registered'})
+   }
     
-    })
+   const validpass=bcrypt.compare(password,user.password)
+
+   if(!validpass)
+   {
+    return res.json({msg:"password is incorrect"})
+   }
+
+   return res.send('success')
+
+     
+    
+    
 })
 
 
@@ -43,9 +49,26 @@ app.post('/login',(req,res)=>{
 
 
 
-app.post('/signup',(req,res)=>{
-    schema.create(req.body).then(emp=>res.json(emp)).catch(err=>res.json(err))
+app.post('/signup',async(req,res)=>{
 
+    const {email,password}=req.body;
+
+    const user=await schema.findOne({email})
+    if(user)
+    {
+        return res.json({msg:"user already exists"})
+    }
+
+    const hashpass=bcrypt.hash(password,10)
+    const newuser=new schema({
+        email,
+        password:hashpass,
+    })
+
+    await newuser.save()
+    return res.json({msg:"regstred succesfully"})
+
+    
 })
 
 
